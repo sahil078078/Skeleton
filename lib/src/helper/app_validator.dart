@@ -75,6 +75,74 @@ class AppValidator {
     }
   }
 
+  //! GST Validator
+  static String? gstValidator(String? gstNumber) {
+    if (gstNumber == null || gstNumber.trim().isEmpty) {
+      return "GST number is required";
+    } else {
+      // Correct regex for Indian GST number
+      Pattern pattern = r'^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$';
+      RegExp regexp = RegExp(pattern.toString());
+
+      if (regexp.hasMatch(gstNumber.trim())) {
+        return null; // Valid GST number
+      } else {
+        return "Please enter a valid GST number";
+      }
+    }
+  }
+
+  //! Optional GST Validator (if GST is not required)
+  static String? gstNotRequiredValidator(String? gstNumber) {
+    if (gstNumber == null || gstNumber.trim().isEmpty) {
+      return null;
+    } else {
+      // Correct regex for Indian GST number
+      Pattern pattern = r'^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$';
+      RegExp regexp = RegExp(pattern.toString());
+
+      if (regexp.hasMatch(gstNumber.trim())) {
+        return null; // Valid GST number
+      } else {
+        return "Please enter a valid GST number";
+      }
+    }
+  }
+
+  //! PAN Card Validator
+  static String? panValidator(String? panNumber) {
+    if (panNumber == null || panNumber.trim().isEmpty) {
+      return "PAN number is required";
+    } else {
+      // Correct regex for Indian PAN number
+      Pattern pattern = r'^[A-Z]{5}[0-9]{4}[A-Z]{1}$';
+      RegExp regexp = RegExp(pattern.toString());
+
+      if (regexp.hasMatch(panNumber.trim())) {
+        return null; // Valid PAN number
+      } else {
+        return "Please enter a valid PAN number";
+      }
+    }
+  }
+
+  //! Optional PAN Card Validator (if PAN is not required)
+  static String? panNotRequiredValidator(String? panNumber) {
+    if (panNumber == null || panNumber.trim().isEmpty) {
+      return null; // PAN is optional, so no error
+    } else {
+      // Correct regex for Indian PAN number
+      Pattern pattern = r'^[A-Z]{5}[0-9]{4}[A-Z]{1}$';
+      RegExp regexp = RegExp(pattern.toString());
+
+      if (regexp.hasMatch(panNumber.trim())) {
+        return null; // Valid PAN number
+      } else {
+        return "Please enter a valid PAN number";
+      }
+    }
+  }
+
   //! Input Format
 
   static final mobileInputFormatters = <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp('[0-9]'))];

@@ -1,0 +1,2 @@
+/Users/myjini/Desktop/SAHIL/Skeleton/android/app/.cxx/Debug/4z6u4z3w/x86/CMakeFiles/rebuild_cache.dir
+/Users/myjini/Desktop/SAHIL/Skeleton/android/app/.cxx/Debug/4z6u4z3w/x86/CMakeFiles/edit_cache.dir

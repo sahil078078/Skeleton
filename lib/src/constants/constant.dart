@@ -1,11 +1,11 @@
+import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-
-class Constant with _ColorMixin, _NumericalMixin, _ConstMixin {
-  Constant._(); //!private constructor
-  factory Constant() => instance; //!SingleTone
-  static final instance = Constant._(); //!Instance
+class Constants with _ColorMixin, _NumericalMixin, _ConstMixin {
+  Constants._(); //!private constructor
+  factory Constants() => instance; //!SingleTone
+  static final instance = Constants._(); //!Instance
 }
 
 //! Colors
@@ -47,6 +47,7 @@ mixin _ColorMixin {
   final blue50 = const Color(0xffF1F5FF);
   final red10 = const Color(0x1AF13637);
   final apple10 = const Color(0x1A4BB543);
+  final transparent = Colors.transparent;
   static const shadow = Color(0x1A000000);
 
   //!grey
@@ -87,6 +88,7 @@ mixin _ColorMixin {
 mixin _NumericalMixin {
   final SizedBox square = const SizedBox(width: 15, height: 15);
   final EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 15, vertical: 13);
+  final EdgeInsets popupPadding = EdgeInsets.symmetric(horizontal: 20, vertical: 10);
   final boxShadow = <BoxShadow>[const BoxShadow(color: _ColorMixin.shadow, offset: Offset(0, 1), blurRadius: 2)];
 }
 
@@ -97,4 +99,7 @@ mixin _ConstMixin {
 
   //! Booleans
   final bool isDebug = kDebugMode == true && kReleaseMode == false && kProfileMode == false;
+
+  //! Platform
+  final bool isAndroid = Platform.isAndroid && !Platform.isIOS;
 }

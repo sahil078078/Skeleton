@@ -27,4 +27,44 @@ class AppDateFormat {
 
   //* Month
   static String month(DateTime date) => DateFormat('MMM').format(date);
+
+  //* Event
+  static String event(DateTime date) => DateFormat('EEE, dd MMM, yyyy  hh:mm a').format(date);
+
+  //* Day Month
+  static String dayMonth(DateTime date) => DateFormat('dd, MMM').format(date);
+
+  //* UserFormat
+  static String userFormat(DateTime date, String format) => DateFormat(format).format(date);
+
+  //* Comment | Like youtube
+  static String comment(DateTime dateTime) {
+    final now = DateTime.now();
+    final difference = now.difference(dateTime);
+
+    if (difference.inDays == 0) {
+      // Same day, return in hours
+      if (difference.inHours == 0) {
+        // Less than an hour, return in minutes
+        if (difference.inMinutes == 0) {
+          return 'Just now';
+        } else {
+          return '${difference.inMinutes}m';
+        }
+      } else {
+        return '${difference.inHours}h';
+      }
+    } else if (difference.inDays < 30) {
+      // Less than a month, return in days
+      return '${difference.inDays} day${difference.inDays > 1 ? 's' : ''}';
+    } else if (difference.inDays < 365) {
+      // Less than a year, return in months
+      final months = (difference.inDays / 30).floor();
+      return '$months month${months > 1 ? 's' : ''}';
+    } else {
+      // More than a year, return in years
+      final years = (difference.inDays / 365).floor();
+      return '$years year${years > 1 ? 's' : ''}';
+    }
+  }
 }
