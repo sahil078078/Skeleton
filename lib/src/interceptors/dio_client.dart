@@ -11,7 +11,7 @@ class DioClient {
   final dio = http.Dio();
 
   //! Init DioInterCaptor
-  initDio() {
+  void initDio() {
     try {
       dio.interceptors.add(InterceptorService());
       dio.options = http.BaseOptions(

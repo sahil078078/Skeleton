@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../constants/constant.dart';
 import '../helper/app_text_style.dart';
 import 'custom_rich_text.dart';

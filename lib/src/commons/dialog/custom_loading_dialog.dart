@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomLoadingDialog {
   CustomLoadingDialog._();
 
-  static showLoading({
+  static Future<T?> showLoading<T>({
     required BuildContext context,
     String text = 'Loading',
     Color? bgColor,
@@ -33,11 +33,11 @@ class CustomLoadingDialog {
     );
   }
 
-  static hideLoading(BuildContext context) {
+  static void hideLoading(BuildContext context) {
     Navigator.pop(context);
   }
 
-  static _customDialog({
+  static SizedBox _customDialog({
     required BuildContext context,
     required String text,
     Color? bgColor,

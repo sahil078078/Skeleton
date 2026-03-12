@@ -36,10 +36,17 @@ class CustomRadioListTile<T> extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Radio<T>(
-              value: value,
+            // Radio<T>(
+            //   value: value,
+            //   groupValue: groupValue,
+            //   onChanged: onChanged,
+            // ),
+            RadioGroup(
               groupValue: groupValue,
               onChanged: onChanged,
+              child: Radio<T>(
+                value: value,
+              ),
             ),
             Constants.instance.square.copyWith(height: 0, width: titleGap),
             if (title.notEmptyNotNull || subtitle.notEmptyNotNull)
